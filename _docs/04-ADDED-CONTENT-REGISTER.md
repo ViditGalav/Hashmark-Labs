@@ -4,7 +4,7 @@ Everything on the site that is NOT transcribed from the decks goes here, so the 
 
 | # | Where | What | Basis | Status |
 |---|---|---|---|---|
-| 1 | Global | Domain `https://hashmarklabs.com` used as placeholder `SITE_URL` (env-configurable) | Unknown domain | ⚠ Confirm domain |
+| 1 | Global | Live at `https://hashmark-labs.vercel.app` (Vercel env `NEXT_PUBLIC_SITE_URL`); code fallback `https://hashmarklabs.com` | No custom domain yet | ⚠ Add custom domain, then update the env var |
 | 2 | Home / Contact | FAQ answers | Rephrased from deck facts (engagement, principles, regions, concurrency) | Review |
 | 3 | All pages | Meta titles/descriptions | Rephrased deck hero lines | Review |
 | 4 | /privacy | Privacy notice for the contact form | Generic, form-data-only; no legal entity named | ⚠ Needs legal review |

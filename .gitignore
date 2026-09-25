@@ -1,0 +1,8 @@
+# Source credential decks and their extractions stay local (repo is public)
+*.pdf
+_source/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

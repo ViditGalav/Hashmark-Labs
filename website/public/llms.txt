@@ -1,0 +1,43 @@
+# Hashmark Labs
+
+> Engineering the systems others can't. Senior-led AI, blockchain and full-stack engineering — architecting intelligent decentralised systems, built for scale, designed for trust, delivered globally.
+
+- Focus: AI · Blockchain · FinTech
+- Model: Senior-led consultancy
+- Delivery: USA · Europe · APAC · Middle East
+- Proof: 70+ systems delivered · 6.5+ years of senior leadership · 11 industry verticals · 4–5 clients at a time, max
+- Position: We don't sell developers. We sell architecture, protocol expertise and senior execution. The architects you meet are the engineers who build.
+- Commercial terms are scoped after discovery. No public pricing.
+
+## Practices
+
+Clients combine them — or start with one.
+
+- [01 Engineering](/services/engineering): AI-integrated systems, protocol engineering, DeFi, trading infrastructure, data platforms and fintech rails — architected and built by senior engineers.
+- [02 Growth & Marketing](/services/growth): Full-funnel marketing, community and brand for Web3, AI and fintech products — led by people who understand how your product actually works.
+- [03 BD & Partnerships](/services/bd-partnerships): Business development, partnerships and sales for Web3, AI and fintech companies — from the first integration partner to an enterprise pipeline.
+- [04 Product & Tokenomics](/services/product-tokenomics): Product strategy, tokenomics and go-to-market architecture for Web3, AI and fintech ventures — designed by the engineers who build protocols.
+
+## Flagship case studies (all live in production)
+
+- [Assymetrix](/work/assymetrix) — AI & Data Intelligence — A multi-venue prediction-market intelligence platform. Domains: assymetrix.com, data.assymetrix.com
+- [Fincruse / CruseX](/work/fincruse-crusex) — Financial & Trading Infrastructure — One system for banking, trading, wallets and payments. Domain: fincruse.com
+- [Goldpesa](/work/goldpesa) — DeFi & Tokenomics — A multi-protocol DeFi ecosystem with fee-driven tokenomics. Domains: goldpesa.com, gpmines.com
+- [INVARIA](/work/invaria) — Enterprise AI & Trade Infrastructure — Decision infrastructure for global commodity trading. Domain: invaria.digital
+- [Foreon Network](/work/foreon-network) — Protocol Engineering — A first-of-its-kind Cardano-native prediction market. Domain: foreon.network
+
+## Pages
+
+- [Home](/)
+- [Services](/services)
+- [Work](/work)
+- [Approach](/approach)
+- [About](/about)
+- [Contact](/contact)
+- [Privacy](/privacy)
+
+## Contact
+
+- Email: hashmarklabs@gmail.com
+- WhatsApp: +91 63671 46698 (https://wa.me/916367146698)
+- Vidit Galav, Head of Engineering: geekviditweb3@gmail.com

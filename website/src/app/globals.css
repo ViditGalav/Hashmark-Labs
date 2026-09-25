@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+/* Design tokens — extracted from the Hashmark Labs credential decks. See _docs/02-BRAND-AND-DESIGN-SYSTEM.md */
+@theme {
+  --color-bg: #0a0b14;
+  --color-bg-2: #0e0f1c;
+  --color-surface: #13152a;
+  --color-surface-2: #1a1d38;
+  --color-line: rgb(154 156 184 / 0.16);
+  --color-line-strong: rgb(154 156 184 / 0.28);
+  --color-text: #f4f1fa;
+  --color-text-2: #c9c7de;
+  --color-muted: #9a9cb8;
+  --color-faint: #7c7fa6;
+  --color-pink: #ff5e8e;
+  --color-pink-soft: #ff9cb9;
+  --color-violet: #b98cff;
+  --color-indigo: #8b7bff;
+  --color-teal: #3fe0c5;
+  --color-plum: #42193f;
+
+  --color-cream: #f1ece3;
+  --color-cream-2: #e8e1d5;
+  --color-ink: #1a1822;
+  --color-ink-2: #4a4655;
+  --color-crimson: #c8285a;
+
+  --font-serif: var(--font-instrument-serif), "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee 60s linear infinite;
+  --animate-pulse-soft: pulse-soft 3.2s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-text-2);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: rgb(255 94 142 / 0.35);
+    color: var(--color-text);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-pink);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  h1, h2, h3, h4 {
+    color: var(--color-text);
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+  }
+  .section {
+    padding-block: clamp(4.5rem, 8vw, 7.5rem);
+  }
+
+  /* Type scale (fluid) */
+  .display-xl {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(3rem, 1.2rem + 6.6vw, 7rem);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+  }
+  .display-l {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 1.4rem + 3.8vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+  .display-m {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(2rem, 1.3rem + 2.4vw, 3.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+  }
+  .display-s {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+    line-height: 1.15;
+  }
+  .lead {
+    font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--color-text-2);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-pink);
+  }
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.4;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .em {
+    font-style: italic;
+    color: var(--color-pink);
+  }
+  .text-gradient {
+    background: linear-gradient(100deg, var(--color-pink) 0%, var(--color-violet) 70%, var(--color-indigo) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .card {
+    position: relative;
+    background: linear-gradient(180deg, rgb(26 29 56 / 0.55), rgb(19 21 42 / 0.55));
+    border: 1px solid var(--color-line);
+    border-radius: 16px;
+    transition: border-color 0.35s var(--ease-out-expo), transform 0.35s var(--ease-out-expo), background 0.35s;
+  }
+  .card-hover:hover {
+    border-color: rgb(255 94 142 / 0.4);
+    transform: translateY(-2px);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-line);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    color: var(--color-text-2);
+    white-space: nowrap;
+  }
+
+  .hairline { border-color: var(--color-line); }
+
+  /* Ambient backdrop used on dark hero/CTA sections (mirrors deck backgrounds) */
+  .ambient {
+    background:
+      radial-gradient(60% 55% at 85% 0%, rgb(58 38 130 / 0.45), transparent 70%),
+      radial-gradient(45% 50% at 0% 100%, rgb(90 30 90 / 0.35), transparent 70%),
+      var(--color-bg);
+  }
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgb(154 156 184 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(154 156 184 / 0.05) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  /* Cream section (deck principles slide) */
+  .cream {
+    background: var(--color-cream);
+    color: var(--color-ink-2);
+    color-scheme: light;
+  }
+  .cream h1, .cream h2, .cream h3, .cream h4 { color: var(--color-ink); }
+  .cream .eyebrow { color: var(--color-crimson); }
+  .cream .label { color: #6b6676; }
+  .cream :focus-visible { outline-color: var(--color-crimson); }
+
+  /* Reveal-on-scroll (progressive: content visible without JS) */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .js [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .js [data-reveal] { opacity: 1; transform: none; }
+}

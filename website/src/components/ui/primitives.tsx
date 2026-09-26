@@ -38,11 +38,10 @@ export function Logo({ className }: { className?: string }) {
 /* ---------- Buttons ---------- */
 type ButtonVariant = "primary" | "secondary" | "ghost";
 const buttonBase =
-  "group inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-medium transition-all duration-300 ease-out-expo";
+  "group inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-[0.95rem] font-medium transition-colors duration-200";
 const buttonVariants: Record<ButtonVariant, string> = {
-  primary:
-    "bg-pink text-bg hover:bg-pink-soft shadow-[0_0_0_1px_rgb(255_94_142/0.4),0_10px_40px_-10px_rgb(255_94_142/0.6)]",
-  secondary: "border border-line-strong text-text hover:border-pink/60 hover:bg-white/[0.03]",
+  primary: "bg-pink text-bg hover:bg-pink-soft",
+  secondary: "border border-line-strong text-text hover:bg-white/[0.04]",
   ghost: "text-text hover:text-pink px-0",
 };
 
@@ -87,7 +86,6 @@ export function Arrow({ className, direction = "right" }: { className?: string; 
 
 /* ---------- Section header ---------- */
 export function SectionHeader({
-  index,
   eyebrow,
   title,
   emphasis,
@@ -96,8 +94,7 @@ export function SectionHeader({
   as: Tag = "h2",
   size = "l",
 }: {
-  index?: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   emphasis?: string;
   lead?: ReactNode;
@@ -107,11 +104,8 @@ export function SectionHeader({
 }) {
   return (
     <header className={cn("max-w-3xl", className)} data-reveal>
-      <p className="eyebrow">
-        {index ? `${index} — ` : ""}
-        {eyebrow}
-      </p>
-      <Tag className={cn("mt-4", size === "l" ? "display-l" : "display-m")}>
+      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+      <Tag className={cn(eyebrow && "mt-3", size === "l" ? "display-l" : "display-m")}>
         {title}
         {emphasis && (
           <>
@@ -126,13 +120,10 @@ export function SectionHeader({
 }
 
 /* ---------- Small bits ---------- */
-export function LivePill({ label = "Live in production" }: { label?: string }) {
+export function LivePill({ label = "Live" }: { label?: string }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-teal/30 bg-teal/[0.07] px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-teal">
-      <span className="relative flex h-1.5 w-1.5">
-        <span className="absolute inset-0 animate-ping rounded-full bg-teal/60" />
-        <span className="relative h-1.5 w-1.5 rounded-full bg-teal" />
-      </span>
+    <span className="inline-flex items-center gap-2 text-sm text-teal">
+      <span className="h-1.5 w-1.5 rounded-full bg-teal" aria-hidden="true" />
       {label}
     </span>
   );

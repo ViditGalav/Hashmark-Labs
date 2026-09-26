@@ -12,11 +12,11 @@ export default function NotFound() {
       <div aria-hidden="true" className="grid-lines pointer-events-none absolute inset-0" />
       <div className="container-x relative">
         <p className="eyebrow">Error 404</p>
-        <p aria-hidden="true" className="mt-4 font-serif text-[clamp(7rem,4rem+14vw,14rem)] leading-[0.85] tracking-[-0.02em] text-gradient">
+        <p aria-hidden="true" className="mt-4 font-serif text-[clamp(7rem,4rem+14vw,14rem)] leading-[0.85] tracking-[-0.02em] text-text/15">
           404
         </p>
         <h1 className="display-m mt-6 max-w-2xl">
-          This page isn&apos;t <span className="em">on the chain.</span>
+          We couldn&apos;t find <span className="em">that page.</span>
         </h1>
         <p className="lead mt-5 max-w-xl">The link may be broken, or the page may have moved.</p>
         <div className="mt-10 flex flex-wrap gap-3">

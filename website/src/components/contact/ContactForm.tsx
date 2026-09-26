@@ -185,7 +185,7 @@ function ContactFormInner({
   const practiceNames = practiceOptions.filter((p) => values.practices.includes(p.slug)).map((p) => p.name);
   const mailto = buildMailto(values, practiceNames);
   const whatsapp = `${contact.whatsappHref}?text=${encodeURIComponent(
-    `Hi Hashmark Labs — I'm ${values.name || "reaching out"}${values.company ? ` from ${values.company}` : ""}. I'd like to talk about ${
+    `Hi Hashmark Labs, I'm ${values.name || "reaching out"}${values.company ? ` from ${values.company}` : ""}. I'd like to talk about ${
       practiceNames.length ? practiceNames.join(", ") : "a project"
     }.`,
   )}`;
@@ -217,12 +217,12 @@ function ContactFormInner({
           </svg>
         </span>
         <h3 className="display-s mt-6">
-          Thank you — <span className="em">message received.</span>
+          Thanks, <span className="em">we&apos;ve got it.</span>
         </h3>
         <p className="mt-4 max-w-prose">
           Your enquiry is with the Hashmark Labs team. We&apos;ll reply to <span className="text-text">{status.email}</span> to arrange a
           discovery conversation with a senior lead.
-          {values.nda ? " You asked for an NDA before we talk — that request is included." : ""}
+          {values.nda ? " We've noted that you'd like an NDA before we talk." : ""}
         </p>
         <p className="mt-4 text-sm text-muted">
           Anything to add? Email{" "}
@@ -237,7 +237,7 @@ function ContactFormInner({
             setValues(emptyValues(initialPractices));
             setStatus({ kind: "idle" });
           }}
-          className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-full border border-line-strong px-6 py-3 text-[0.95rem] font-medium text-text transition-colors hover:border-pink/60"
+          className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-lg border border-line-strong px-5 py-2.5 text-[0.95rem] font-medium text-text transition-colors hover:border-pink/60"
         >
           Send another enquiry
         </button>
@@ -292,7 +292,7 @@ function ContactFormInner({
           <span className="sr-only"> (required)</span>
         </legend>
         <p id="practices-hint" className="mt-2 text-sm text-muted">
-          Choose one or more — clients combine them, or start with one.
+          Pick one or more.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           {practiceOptions.map((p) => {
@@ -310,7 +310,7 @@ function ContactFormInner({
                 />
                 <span
                   className={cn(
-                    "inline-flex min-h-11 items-center gap-2.5 rounded-full border px-4 py-2 font-mono text-[0.78rem] tracking-[0.04em] transition-colors",
+                    "inline-flex min-h-11 items-center gap-2.5 rounded-lg border px-4 py-2 text-[0.93rem] transition-colors",
                     "peer-focus-visible:ring-2 peer-focus-visible:ring-pink peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-bg",
                     checked
                       ? "border-pink/70 bg-pink/15 text-text"
@@ -329,9 +329,6 @@ function ContactFormInner({
                         <path d="M2 5.2 4 7.2 8 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     )}
-                  </span>
-                  <span className="text-faint" aria-hidden="true">
-                    {p.index}
                   </span>
                   {p.name}
                 </span>
@@ -382,7 +379,7 @@ function ContactFormInner({
         />
         <p id="message-hint" className="mt-2 text-sm text-muted">
           {values.message.trim().length < MESSAGE_MIN
-            ? `At least ${MESSAGE_MIN} characters — ${MESSAGE_MIN - values.message.trim().length} to go.`
+            ? `${MESSAGE_MIN - values.message.trim().length} more characters, please.`
             : "Architecture, constraints and timelines all help us prepare."}
         </p>
         <FieldError id="message-error" message={errors.message} />
@@ -440,8 +437,8 @@ function ContactFormInner({
           </h3>
           <p className="mt-2 text-[0.95rem]">
             {status.kind === "rate_limited"
-              ? "Please try again in a few minutes — or reach us directly now:"
-              : "Your message hasn't reached us yet. Please send it directly — the email below is prefilled with what you've written:"}
+              ? "Please try again in a few minutes, or reach us directly:"
+              : "Your message hasn't reached us yet. Please send it directly instead. The email link below already contains what you wrote:"}
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <a
@@ -666,6 +663,6 @@ function buildMailto(values: Values, practiceNames: string[]): string {
     "",
     values.message.length > 1500 ? `${values.message.slice(0, 1500)}…` : values.message,
   ].filter((l): l is string => typeof l === "string");
-  const subject = `Project enquiry${values.name ? ` — ${values.name}` : ""}${values.company ? ` (${values.company})` : ""}`;
+  const subject = `Project enquiry${values.name ? ` from ${values.name}` : ""}${values.company ? ` (${values.company})` : ""}`;
   return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
 }

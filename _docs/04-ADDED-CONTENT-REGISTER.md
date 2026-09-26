@@ -61,3 +61,19 @@ Everything on the site that is NOT transcribed from the decks goes here, so the 
 - Product & Tokenomics CTA changed to "Request a strategy session" (no booking link exists).
 - BD in-preparation slots now use each slot's own deck line (BD p12).
 - FAQ chains answer separates "shipped on" (TECH p17) from protocol depth (TECH p6).
+
+## Humanizer pass (2026-09-26)
+All wording across the site was rewritten per `_docs/06-VOICE-AND-HUMANIZER.md` (plain voice, no slogan pairs, no fragment stacks, ~0 em dashes). Facts were held fixed and checked (numbers, clients, stacks, services, principles, limits). Notable authored lines to review:
+| # | Where | Copy |
+|---|---|---|
+| 29 | Home hero | "We build the hard parts of AI, blockchain and fintech products." + lead restating 70+ systems and 4–5 clients |
+| 30 | Home hero panel | "A few systems we built that you can use today" (the 5 live cases + domains) |
+| 31 | Home | "Three systems we're proud of" / "Most of our work is engineering" / "We also help with the work around the build" (each practice has a Hashmark engineer in its pod) |
+| 32 | Contact | "Tell us what you're building." / 3 next steps rewritten ("A call with a senior lead", "A scoped proposal", "Weekly progress you can see") |
+| 33 | Header/CTAs | "Talk to an engineer" replaces "Start a conversation" |
+| 34 | /services | "Engineering first, and the work around it." |
+| 35 | /approach | "Senior people, a plan you can see, and no surprises." / "A few lines we don't cross" |
+| 36 | /work | "Things we built that are live right now." / "Growth and BD case studies are on the way" |
+| 37 | Practice pages | All practice copy rewritten (practices.ts); structure and facts unchanged |
+| 38 | 404 | "We couldn't find that page." |
+Design changes: removed section numbering, count-up stats, marquee, constellation graphic, glow buttons, card grids and case filter; lists/tables instead of identical cards.

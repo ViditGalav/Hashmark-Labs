@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { contact, site } from "@/content/site";
+import { contact } from "@/content/site";
 import { practices } from "@/content/practices";
 import { ContactForm, type PracticeOption } from "@/components/contact/ContactForm";
 import { Arrow } from "@/components/ui/primitives";
 import { JsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
-  title: "Contact — Start a conversation",
+  title: "Contact",
   description:
-    "Building something technically complex? Talk to Hashmark Labs about AI, blockchain and fintech engineering, growth, BD or tokenomics — directly with a senior lead.",
+    "Tell Hashmark Labs what you're building. You'll hear back from a senior engineer or lead, not a sales team.",
   alternates: { canonical: "/contact" },
   openGraph: { url: "/contact", title: "Contact · Hashmark Labs" },
 };
@@ -16,16 +16,16 @@ export const metadata: Metadata = {
 // Deck-backed steps (TECH p2, p7, p18; PT/GR/BD engagement notes). Logged in 04-ADDED-CONTENT-REGISTER.
 const nextSteps = [
   {
-    title: "Discovery conversation with a senior lead",
-    body: "The architects you meet are the engineers who build. No hand-offs to junior teams.",
+    title: "A call with a senior lead",
+    body: "Usually one of the engineers who would build your system. We talk through the problem, the constraints and what you've tried.",
   },
   {
-    title: "Scoped proposal",
-    body: "Commercial terms are scoped after discovery — to the complexity, deliverables and engagement model required.",
+    title: "A scoped proposal",
+    body: "Once we understand the work, we scope the terms around its complexity, the deliverables and how you want to work with us.",
   },
   {
-    title: "Weekly delivery with direct access",
-    body: "Weekly deliverables, live progress visibility and direct access to your senior lead — engineer, architect, strategist or BD lead.",
+    title: "Weekly progress you can see",
+    body: "Something delivered every week, progress you can follow as it happens, and a direct line to the people doing the work.",
   },
 ];
 
@@ -45,17 +45,16 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="ambient relative overflow-hidden pb-16 pt-36 sm:pb-20 lg:pt-44">
-        <div aria-hidden="true" className="grid-lines pointer-events-none absolute inset-0" />
-        <div className="container-x relative">
+      <section className="ambient pb-14 pt-32 sm:pb-16 lg:pt-40">
+        <div className="container-x">
           <header className="max-w-3xl">
             <p className="eyebrow">Contact</p>
             <h1 className="display-l mt-4">
-              Let&apos;s build <span className="em">what&apos;s next.</span>
+              Tell us what you&apos;re <span className="em">building.</span>
             </h1>
             <p className="lead mt-6 max-w-2xl">
-              Building something technically complex and looking for a team that thinks at the protocol level? Let&apos;s discuss the
-              architecture.
+              A few lines about the product, where it&apos;s at and what&apos;s hard about it is plenty. A senior engineer or lead
+              will read it and get back to you.
             </p>
           </header>
         </div>
@@ -105,11 +104,8 @@ export default function ContactPage() {
               <ol className="mt-6 space-y-6">
                 {nextSteps.map((s, i) => (
                   <li key={s.title} className="flex gap-4">
-                    <span
-                      aria-hidden="true"
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-pink/40 bg-pink/10 font-mono text-xs text-pink"
-                    >
-                      {String(i + 1).padStart(2, "0")}
+                    <span aria-hidden="true" className="w-4 shrink-0 font-mono text-sm text-pink-soft">
+                      {i + 1}
                     </span>
                     <div>
                       <h3 className="font-sans text-[1rem] font-medium text-text">{s.title}</h3>
@@ -121,7 +117,7 @@ export default function ContactPage() {
             </div>
 
             <p className="label px-1 leading-relaxed">
-              Delivery: <span className="text-text-2">{site.regions.join(" · ")}</span>
+              We work with teams in the US, Europe, APAC and the Middle East.
             </p>
           </aside>
         </div>

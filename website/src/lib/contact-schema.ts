@@ -67,7 +67,7 @@ export const contactSchema = z.object({
   message: z
     .string()
     .trim()
-    .min(MESSAGE_MIN, { error: `Please share a little more — at least ${MESSAGE_MIN} characters.` })
+    .min(MESSAGE_MIN, { error: `Could you tell us a bit more? At least ${MESSAGE_MIN} characters.` })
     .max(MESSAGE_MAX, { error: `Please keep your message under ${MESSAGE_MAX} characters.` }),
   telegram: z.string().trim().max(64, { error: "Please keep this under 64 characters." }).optional().default(""),
   nda: z.boolean().optional().default(false),

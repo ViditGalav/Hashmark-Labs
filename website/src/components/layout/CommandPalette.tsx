@@ -13,7 +13,7 @@ const entries: Entry[] = [
   { group: "Pages", label: "Home", href: "/" },
   { group: "Pages", label: "Services", href: "/services" },
   { group: "Pages", label: "Work", href: "/work" },
-  { group: "Pages", label: "How we work", href: "/approach", keywords: "process principles engagement" },
+  { group: "Pages", label: "Approach", href: "/approach", keywords: "process principles engagement" },
   { group: "Pages", label: "About", href: "/about", keywords: "team vidit haard bhargava" },
   { group: "Pages", label: "Contact", href: "/contact", keywords: "email whatsapp talk" },
   ...practices.map((p) => ({
@@ -149,7 +149,7 @@ export function CommandPalette() {
                   )}
                 >
                   <span>{r.label}</span>
-                  {r.hint && <span className="truncate text-xs text-faint">{r.hint}</span>}
+                  {r.hint && <span className="truncate font-mono text-[0.68rem] uppercase tracking-[0.12em] text-faint">{r.hint}</span>}
                 </div>
               </li>
             );

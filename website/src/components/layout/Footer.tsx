@@ -12,7 +12,7 @@ export function Footer() {
       title: "Company",
       links: [
         { label: "About", href: "/about" },
-        { label: "How we work", href: "/approach" },
+        { label: "Approach", href: "/approach" },
         { label: "Contact", href: "/contact" },
         { label: "Privacy", href: "/privacy" },
       ],
@@ -67,10 +67,16 @@ export function Footer() {
           ))}
         </nav>
       </div>
-      <div className="container-x flex flex-col gap-3 border-t border-line py-6 text-sm text-faint sm:flex-row sm:items-center sm:justify-between">
+      <div className="container-x flex flex-col gap-3 border-t border-line py-6 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-faint sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} Hashmark Labs</p>
-        <p>Senior engineers for AI, blockchain and fintech</p>
+        <p>{site.focus} · Senior-led</p>
       </div>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-24 right-[-2rem] select-none font-serif text-[22rem] leading-none text-white/[0.025]"
+      >
+        #
+      </span>
     </footer>
   );
 }

@@ -1,64 +1,78 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { practices } from "@/content/practices";
-import { Arrow, ButtonLink } from "@/components/ui/primitives";
-import { ClosingCta, joinList } from "@/components/sections/sections";
+import { Arrow, ButtonLink, SectionHeader } from "@/components/ui/primitives";
+import { ClosingCta, PracticeTiles, StatsBand } from "@/components/sections/sections";
 import { JsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
-  title: "Services: engineering, growth, BD and tokenomics",
+  title: "Services — Engineering, Growth, BD and Tokenomics",
   description:
-    "Four practices for Web3, AI and fintech teams: engineering, growth and marketing, BD and partnerships, and product and tokenomics. Use one or combine them.",
+    "Four senior-led practices: Engineering, Growth & Marketing, BD & Partnerships, and Product & Tokenomics — for Web3, AI and fintech teams. Combine them or start with one.",
   alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="ambient pt-[72px]" aria-labelledby="services-h">
-        <div className="container-x py-16 lg:py-24">
+      <section className="ambient relative overflow-hidden pt-[72px]" aria-labelledby="services-h">
+        <div className="grid-lines pointer-events-none absolute inset-0" aria-hidden="true" />
+        <div className="container-x relative py-20 lg:py-32">
           <p className="eyebrow" data-reveal>
             Services
           </p>
-          <h1 id="services-h" className="display-xl mt-5 max-w-4xl" data-reveal>
-            Engineering first, and the <span className="em">work around it.</span>
+          <h1 id="services-h" className="display-xl mt-6 max-w-[15ch]" data-reveal>
+            Four practices. <span className="em">One accountable team.</span>
           </h1>
-          <p className="lead mt-7 max-w-2xl" data-reveal>
-            We&apos;re an engineering firm at heart. Our product and tokenomics, growth, and BD teams each include a Hashmark
-            engineer, so what they plan is something we know can be built. Some clients use one practice, some combine them.
+          <p className="lead mt-8 max-w-2xl" data-reveal>
+            Senior-led engineering at the core — with product &amp; tokenomics, growth and business development backed by the people who build. Clients combine them, or start with one.
           </p>
-          <div className="mt-9" data-reveal>
-            <ButtonLink href="/contact">Talk to an engineer</ButtonLink>
+          <div className="mt-10 flex flex-wrap gap-3" data-reveal>
+            <ButtonLink href="/contact">Start a conversation</ButtonLink>
           </div>
         </div>
       </section>
 
-      <section className="section" aria-label="Practices">
-        <div className="container-x space-y-20">
-          {practices.map((p) => (
-            <article key={p.slug} className="grid gap-8 border-t border-line pt-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16" data-reveal>
-              <div>
-                <h2 className="display-m">{p.name}</h2>
-                <p className="mt-4 text-text-2">{p.summary}</p>
-                <Link href={`/services/${p.slug}`} className="mt-6 inline-flex items-center gap-2 text-pink-soft hover:text-pink">
-                  Read more <span className="sr-only">about {p.name}</span> <Arrow />
+      <section className="section border-t border-line" aria-label="Practices">
+        <div className="container-x">
+          <SectionHeader index="01" eyebrow="The practices" title="Choose where to start." />
+          <PracticeTiles />
+        </div>
+      </section>
+
+      {/* Full service index — every service across practices, scannable */}
+      <section className="section border-t border-line" aria-label="Service index">
+        <div className="container-x">
+          <SectionHeader index="02" eyebrow="Service index" title="Every service, at a glance." />
+          <div className="mt-14 grid gap-x-10 gap-y-14 md:grid-cols-2">
+            {practices.map((p) => (
+              <div key={p.slug} data-reveal>
+                <Link href={`/services/${p.slug}`} className="group flex items-baseline justify-between border-b border-line-strong pb-4">
+                  <h3 className="font-serif text-3xl text-text">
+                    <span className="mr-3 font-mono text-xs tracking-[0.2em] text-pink">{p.index}</span>
+                    {p.name}
+                  </h3>
+                  <Arrow className="text-muted transition-all group-hover:translate-x-1 group-hover:text-pink" />
                 </Link>
-              </div>
-              <div>
-                <ul className="grid gap-x-10 sm:grid-cols-2">
+                <ul>
                   {p.services.items.map((s) => (
-                    <li key={s.title} className="border-b border-line py-4">
-                      <h3 className="font-semibold text-text">{s.title}</h3>
-                      <p className="mt-1 text-sm text-muted">{s.body}</p>
+                    <li key={s.title} className="grid gap-1 border-b border-line py-4 sm:grid-cols-[14rem_1fr] sm:gap-6">
+                      <h4 className="text-[0.98rem] font-semibold">{s.title}</h4>
+                      <p className="text-[0.93rem] text-muted">{s.body}</p>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 text-sm text-muted">Also: {joinList(p.services.also)}.</p>
+                <p className="mt-4 text-sm text-faint">
+                  <span className="label mr-2">Also</span>
+                  {p.services.also.join(" · ")}
+                </p>
               </div>
-            </article>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
+
+      <StatsBand index="03" />
 
       <ClosingCta />
 

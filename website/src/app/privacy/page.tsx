@@ -44,8 +44,8 @@ const sections: { title: string; body: ReactNode }[] = [
     title: "Why we use it",
     body: (
       <p>
-        We use this information only to read and respond to your enquiry, to prepare for a conversation with you, and, if we work
-        together, to manage that engagement.
+        We use this information only to read and respond to your enquiry, to prepare for a conversation with you, and — if we work
+        together — to manage that engagement.
       </p>
     ),
   },

@@ -75,7 +75,7 @@ export function Header() {
       )}
     >
       <div className="container-x flex h-[72px] items-center justify-between gap-6">
-        <Link href="/" aria-label="Hashmark Labs home" className="shrink-0 rounded-lg">
+        <Link href="/" aria-label="Hashmark Labs — home" className="shrink-0 rounded-lg">
           <Logo />
         </Link>
 
@@ -112,7 +112,8 @@ export function Header() {
                               href={`/services/${p.slug}`}
                               className="group block rounded-xl p-4 transition-colors hover:bg-white/[0.04]"
                             >
-                              <span className="flex items-center gap-2 text-[0.98rem] font-medium text-text">
+                              <span className="font-mono text-[0.7rem] tracking-[0.2em] text-pink">{p.index}</span>
+                              <span className="mt-1 flex items-center gap-2 text-[0.98rem] font-medium text-text">
                                 {p.name}
                                 <Arrow className="opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
                               </span>
@@ -125,8 +126,8 @@ export function Header() {
                         href="/services"
                         className="mt-1 flex items-center justify-between rounded-xl bg-white/[0.03] px-4 py-3 text-sm text-text-2 hover:text-text"
                       >
-                        <span>Use one practice or combine them.</span>
-                        <span className="flex items-center gap-1.5 text-pink-soft">
+                        <span>Four practices. Clients combine them — or start with one.</span>
+                        <span className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.16em] text-pink">
                           All services <Arrow />
                         </span>
                       </Link>
@@ -155,7 +156,7 @@ export function Header() {
           <PaletteTrigger className="inline-flex w-11 lg:w-auto" />
           <span className="hidden sm:block">
             <ButtonLink href="/contact" className="!min-h-10 !px-5 !py-2 text-sm">
-              Talk to an engineer
+              Start a conversation
             </ButtonLink>
           </span>
           <button
@@ -191,7 +192,8 @@ export function Header() {
                 <li key={p.slug}>
                   <Link href={`/services/${p.slug}`} className="flex items-center justify-between py-4 text-lg text-text">
                     <span>
-                                            {p.name}
+                      <span className="mr-3 font-mono text-xs text-pink">{p.index}</span>
+                      {p.name}
                     </span>
                     <Arrow />
                   </Link>
@@ -209,7 +211,7 @@ export function Header() {
             ))}
           </ul>
           <ButtonLink href="/contact" className="w-full">
-            Talk to an engineer
+            Start a conversation
           </ButtonLink>
         </nav>
       </div>
